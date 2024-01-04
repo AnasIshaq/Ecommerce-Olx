@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Ecommerce_Olx.Models.Table_Product>
+@{
+    ViewBag.Title = "MyProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("MyProduct", "USER"))
+{
+
+    <input type="text" id="search" name="search" placeholder="Search Products" class="form-control" style="display:inline-block; position:relative; left:3px;" />
+    <input type="submit" id="submit" name="submit" value="Search" style="border-radius:10px; height:44px; " class=" btn btn-outline-danger" />
+
+
+}
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>DESCRIPTION</th>
+                <th>IMAGE</th>
+                <th>ACTION</th>
+            </tr>
+
+        </thead>
+
+        @foreach (var item in Model)
+        {
+
+
+            <tbody>
+                <tr>
+                    <td>@item.product_ID</td>
+                    <td>@item.product_NAME</td>
+                    <td>@item.product_PRICE</td>
+                    <td>@item.product_DESCRIPTION</td>
+                    <td> <img src="@Url.Content(item.product_IMAGE)" height="60" width="80" class="img-thumbnail" /> </td>
+
+                    <td>
+                        <a href="@Url.Action("#" , new {id = item.product_ID})" class="btn btn-outline-info">Edit</a>
+                        <a href="@Url.Action("#" , new {id = item.product_ID})" class="btn btn-outline-secondary ">Delete</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        }
+    </table>
+}
+else
+{
+    <div style="height:340px; margin-bottom:180px; display:flex; justify-content:center; align-items:center;">
+
+        <h1 class="text-muted">YOU HAVE NO PRODUCTS TO SHOW</h1>
+    </div>
+}

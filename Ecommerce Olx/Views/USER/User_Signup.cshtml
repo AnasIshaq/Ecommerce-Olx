@@ -1,0 +1,86 @@
+﻿@model Ecommerce_Olx.Models.Table_User
+@{
+    ViewBag.Title = "User_Signup";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+
+}
+@using (Html.BeginForm("User_Signup", "USER", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section class="h-100" style="background-color: antiquewhite;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <div class="card card-registration my-4">
+                        <div class="row g-0">
+                            <div class="col-xl-6 d-none d-xl-block">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                     alt="Sample photo" class="img-fluid"
+                                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card-body p-md-5 text-black">
+                                    <h2 class="t text-muted" style="position:relative; bottom:0.7em;"><strong>Create</strong> an account.</h2>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(x => x.userr_NAME, new { @class = "form-control form-control-lg", @Placeholder = "Type Name" })
+                                                <label class="form-label text-muted" for="form3Example1n">User Name</label>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(x => x.userr_EMAIL, new { @class = "form-control form-control-lg", @Placeholder = "Type Email", style = "width:132%;" })
+                                                <label class="form-label text-muted" for="form3Example1m1">Email </label>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(x => x.userr_CONTACT, new { @class = "form-control form-control-lg", @Placeholder = "Type Contact" })
+                                                <label class="form-label text-muted" for="form3Example1n1">Contact</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        @Html.PasswordFor(x => x.userr_PASSWORD, new { @class = "form-control form-control-lg", @Placeholder = "Type Password" })
+                                        <label class="form-label text-muted" for="form3Example8">Password</label>
+                                    </div>
+
+
+
+
+
+
+
+                                    <div class="form-outline mb-4">
+                                        <input type="file" id="file" name="file" class="form-control " />
+                                        <label class="form-label text-muted" for="form3Example9">Profile Picture</label>
+                                    </div>
+
+
+
+                                    <div class="d-flex justify-content-lg-between pt-3">
+                                        <input type="reset" class="btn btn-light btn-lg" value="Reset All" />
+                                        <input type="submit" class="btn btn-warning btn-lg ms-2" value="Submit Form" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+   

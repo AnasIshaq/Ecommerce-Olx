@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Home", "Index", "USER", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Category", "View_Category", "USER", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("About", "#", "USER", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact", "#", "USER", new { area = "" }, new { @class = "nav-link" })</li>
+
+
+
+                    <li style="display:flex;">
+                        @if (Session["user_id"] != null)
+                        {
+                            @Html.ActionLink("Add Product", "Add_Product", "USER", new { area = "" }, new { @class = "nav-link" })
+                            @Html.ActionLink("My Product", "MyProduct", "USER", new { area = "" }, new { @class = "nav-link" })
+
+
+                        }
+
+                    </li>
+
+
+                </ul>
+                <ul class="navbar-nav flex-grow-1" style="float:right">
+
+                    <li style="display:flex;">
+                        @if (Session["user_id"] != null)
+                        {
+                            <a href="@Url.Action("MyProfile")" class="nav-link" style="text-decoration:none;">@Session["user_name"]</a>
+
+                            @Html.ActionLink("Logout", "User_Logout", "USER", new { area = "" }, new { @class = "nav-link" })
+
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Login", "User_Login", "USER", new { area = "" }, new { style = " display : inline, ", @class = "nav-link" })
+                            @Html.ActionLink("SingUp", "User_Signup", "USER", new { area = "" }, new { @class = "nav-link" })
+
+
+                        }
+                    </li>
+                    <li>
+                        @if (Session["user_id"] != null)
+                        {
+                            <h5 style="color:white; margin-right:40px;"> </h5>
+                        }
+                    </li>
+
+                   
+                </ul>
+
+                @using (Html.BeginForm("View_Products", "USER"))
+                {
+
+                    <input type="text" id="search" name="search" placeholder="Search Products"  style="display:inline-block; position:relative; left:3px; text-align:center; border-radius:13px; border-color:transparent; height:2.16em; margin-top:3px;" />
+                    <input type="submit" id="submit" name="submit" value="Search" style="border-radius:10px; height:37px; " class=" btn btn-outline-primary" />
+
+
+                }
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

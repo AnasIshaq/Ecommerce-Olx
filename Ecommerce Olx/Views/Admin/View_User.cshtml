@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Ecommerce_Olx.Models.Table_User>
+@{
+    ViewBag.Title = "View_User";
+    Layout = "~/Views/Shared/LAYOUTADMIN.cshtml";
+}
+
+<h2>View_User</h2>
+
+<table class="table table-active table-bordered" >
+
+    <thead>
+        @if (Model != null)
+        {
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Contact</th>
+                <th>Image</th>
+            </tr>
+        }
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@item.userr_NAME</td>
+                <td>@item.userr_EMAIL</td>
+                <td>@item.userr_PASSWORD</td>
+                <td>@item.userr_CONTACT</td>
+                <td><img src="@Url.Content(item.userr_IMAGE)" style="height:60px;"/></td>
+                
+            </tr>
+        </tbody>
+    }
+
+</table>

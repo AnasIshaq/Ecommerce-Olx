@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "ViewDetail_Product";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@model Ecommerce_Olx.Models.ViewDetail_Product
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="card mb-3" style="max-width: 540px; position:relative; left:134px; margin-top:40px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="@Url.Content(Model.product_IMAGE)" class="card-img img-thumbnail "  alt="Product">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.product_NAME <small> <strong>Product ID:</strong> @Model.product_ID</small></h5>
+                <p class="card-text">@Model.product_DESCRIPTION</p>
+                <p class="card-text">Price : <strong>@Model.product_PRICE</strong> </p>
+                <p class="card-text"><small class="text-muted">@Model.category_NAME</small></p>
+                <p class="card-text">User : <strong>@Model.userr_NAME</strong> <img src="@Url.Content(Model.userr_IMAGE)" height="20" width="40" />  </p>
+                <p class="card-text">User ID : <strong>@Model.userr_ID</strong> </p>
+                <p class="card-text">Contact : <strong>@Model.userr_CONTACT</strong> </p>
+                @if (Session["user_id"] != null)
+                {
+                    <a class="btn btn-danger" href="@Url.Action("Add_To_Cart", new { id = Model.product_ID })">
+                        Add To Cart <i class="fa fa-shopping-cart"></i>
+                    </a>
+                }
+                    @*@if (Convert.ToInt32(Session["user_id"]) == Model.userr_ID)
+            {
+                @Html.ActionLink("Delete Product", "Delete_Product", new { id = Model.product_ID })
+            }*@
+
+                </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="col-lg-8 col-md-8 ">@Model.product_NAME <small> <strong>Product ID:</strong> @Model.product_ID</small></div>
+
+<div><img  src="@Url.Content(Model.product_IMAGE)"  /></div>
+
+<h3>Description</h3>
+<p>@Model.product_DESCRIPTION</p>
+<table>
+    <tr><td> Price : <td>@Model.product_PRICE   </td></tr>
+    <tr><td> Category : <td>@Model.category_NAME   </td></tr>
+    <tr><td> User : <td>@Model.userr_NAME <img src="@Url.Content(Model.userr_IMAGE)" height="20px" width="40px" />   </td></tr>
+    <tr><td> User ID : <td>@Model.userr_ID   </td></tr>
+    <tr><td> Contact : <td>@Model.userr_CONTACT   </td></tr>
+
+   
+</table>*@
+

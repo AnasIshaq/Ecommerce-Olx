@@ -1,0 +1,58 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm  bg-info text-dark " style="margin:0px; ">
+        <div class="container">
+            <img src="~/logo/olx.png" height="40" style="margin-right:20px"/>
+
+            @Html.ActionLink("OLX", "Index", "Home", new { area = "" }, new { @class = "navbar-brand   " , style = "font-weight:bold" } )
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li style="font-weight:bold;">@Html.ActionLink("Home", "Admin_Dashboard", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li style="font-weight:bold;">@Html.ActionLink("Category", "View_Category", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li style="font-weight:bold;">@Html.ActionLink("User", "View_User", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li style="font-weight:bold;">@Html.ActionLink("Product", "View_Product", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+
+                </ul>
+                <div style="margin-left:24px;">
+                    @using (Html.BeginForm("View_Category", "Admin"))
+                    {
+
+
+                        <input type="text" id="search" name="search" placeholder="Search Categories" style="text-align:center; background-color:antiquewhite;  border-color: transparent; height:30px; border-radius:8px;" />
+
+                        <input type="submit" id="submit" name="submit" value="Search" style=" background-color:cornflowerblue; border-radius:8px;  border-color : transparent;   height:30px;text-align:center " />
+
+
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

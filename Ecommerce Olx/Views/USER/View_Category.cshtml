@@ -1,0 +1,77 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Ecommerce_Olx.Models.Table_Category>
+@{
+    ViewBag.Title = "View_Category";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+
+}
+
+
+
+
+
+<p class="alert-info">@TempData["sucsess"]</p>
+
+@if (TempData["Total"] == null)
+{
+
+}
+else
+{
+        <h6>Total Price : @TempData["Total"]</h6>
+        @Html.ActionLink("Check Out" , "CheckOut" ,"USER" , new {@class = "btn btn-outline-warning"} )
+
+}
+
+@using (Html.BeginForm("View_Category", "USER"))
+{
+    <div style="display:flex; justify-content:center; align-items:center;" >
+
+    <input type="text" id="search" name="search" placeholder="Search Categories" class="form-control" style="display:inline; align-items:center; justify-content:center; position:relative; left:3px; width:20%;" />
+    <input type="submit" id="submit" name="submit" value="Search" style="border-radius: 10px; height: 44px; margin-left:0.3rem;  " class=" btn btn-outline-danger" />
+
+    </div>
+
+}
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+
+
+
+        <div class="card " style="width: 19rem; display:inline-block; margin-top:3.1rem; margin-left:5rem">
+          <a href="@Url.Action("View_Products", new { id = item.category_ID })">  <img class="card-img-top img-thumbnail" src="@Url.Content(item.category_IMAGE)" alt="Card image cap" style="height:30vh;" > </a>
+            <div class="card-body">
+                <h5 style="text-align:center;" class="card-title">@Html.ActionLink(item.category_NAME, "View_Products", new { id = item.category_ID })</h5>
+                <a style="position:relative; left:57px;" href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+
+        @*<div class="col-lg-4 col-md-4 " style="margin-top:100px;height:300px;">
+
+                <img src="" style="height:240px; width:100%;" />
+                <br />
+                <h4 style="text-align:center; color:black; margin-top:20px;">@item.category_NAME</h4>
+
+            </div>*@
+
+    }
+}
+
+
+
+ 
+
+<div style="height:400px; display:flex; justify-content:center; align-items:center;">
+
+    <div style="margin-right:200px;" class="pagination">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            of @Model.PageCount@Html.PagedListPager(Model, page => Url.Action("View_Category", new { page }))
+        </div>
+</div>
+
+

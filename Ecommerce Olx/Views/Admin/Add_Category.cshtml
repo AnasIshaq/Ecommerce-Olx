@@ -1,0 +1,20 @@
+﻿@model Ecommerce_Olx.Models.Table_Category
+
+@{
+    ViewBag.Title = "Add_Category";
+    Layout = "~/Views/Shared/LAYOUTADMIN.cshtml";
+}
+
+<h2>Add_Category</h2>
+
+
+
+
+@using (Html.BeginForm("Add_Category", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.TextBoxFor(x => x.category_NAME, new { @class = "form-control", @Placeholder = "Enter Name" })
+    <input type="file" id="file" name="file" class="btn-default btn btn-group btn-outline-dark" />
+    <br />
+
+    <input type="submit" class="btn-default btn btn-group btn-outline-info" />
+}

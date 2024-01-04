@@ -1,0 +1,49 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Ecommerce_Olx.Models.Table_Category>
+@{
+    ViewBag.Title = "View_Category";
+    Layout = "~/Views/Shared/LAYOUTADMIN.cshtml";
+}
+
+<h2>View_Category</h2>
+
+@using (Html.BeginForm("View_Category" , "Admin"))
+            {
+
+    <input type="text" id="search" name="search" placeholder="Search Categories" class="form-control" style="display:inline-block; position:relative; left:3px;" />
+    <input type="submit" id="submit" name="submit" value="Search" style="border-radius:10px; height:44px; " class=" btn btn-outline-info" />
+    
+
+            } 
+
+@if (Model != null)
+{
+
+    foreach (var item in Model)
+    {
+
+
+
+            <div class="card "  style="width: 18rem; display:inline-block; margin-top:40px; margin-left:2em;" >
+                <img class="card-img-top img-thumbnail" src="@Url.Content(item.category_IMAGE)" alt="Card image cap" style="height:30vh;">
+                <div class="card-body">
+                    <h5 style="text-align:center;"  class="card-title">@item.category_NAME</h5>
+                    <a style="position:relative; left:57px;"  href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+
+
+        @*<div class="col-lg-4 col-md-4 " style="margin-top:100px;height:300px;">
+
+            <img src="" style="height:240px; width:100%;" />
+            <br />
+            <h4 style="text-align:center; color:black; margin-top:20px;">@item.category_NAME</h4>
+
+        </div>*@
+
+    }
+}
+
+
+
+

@@ -1,0 +1,41 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Ecommerce_Olx.Models.Table_Product>
+@{
+    ViewBag.Title = "View_Products";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>View_Products</h2>
+
+
+
+
+@using (Html.BeginForm("View_Products", "USER"))
+{
+    <input type="text" id="search" name="search" placeholder="Search Products" class="form-control" style="display:inline-block; position:relative; left:3px;" />
+    <input type="submit" id="submit" name="submit" value="Search" style="border-radius:10px; height:44px; " class=" btn btn-outline-warning" />
+
+}
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <div class="card " style="width: 18rem; display:inline-block; margin-top:40px; margin-left:2em;">
+           <img class="card-img-top img-thumbnail" src="@Url.Content(item.product_IMAGE)" alt="Card image cap" style="height:30vh;">
+            <div class="card-body">
+                <h5 style="text-align:center;" class="card-title">@Html.ActionLink(item.product_NAME, "ViewDetail_Product", new { id = item.product_ID })</h5>
+                <a style="position:relative; left:57px;" href="#" class="btn btn-primary">Go somewhere</a>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        @*<img src="@Url.Content(item.product_IMAGE)" />
+        <h4 style=" color:black; margin-top:20px;"></h4>*@
+    }
+}

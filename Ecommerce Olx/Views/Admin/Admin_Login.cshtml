@@ -1,0 +1,21 @@
+﻿@model Ecommerce_Olx.Models.Table_Admin
+
+@{
+    ViewBag.Title = "Admin_Login";
+    Layout = "~/Views/Shared/LAYOUTADMIN.cshtml";
+}
+
+<h2>Admin_Login</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(x => x.admin_EMAIL, new { @class = "form-control", @Placeholder = "Enter Email" })
+    @Html.PasswordFor(x => x.admin_PASSWORD, new { @class = "form-control", @Placeholder = "Enter Password" })
+
+
+    <input type="submit" class="btn-default btn btn-group btn-outline-info" />
+}
+<div class="form-group">
+    <p style="color:red">@ViewBag.error</p>
+</div>

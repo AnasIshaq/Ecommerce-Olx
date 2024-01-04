@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e612b6b8e12e46b5a4a35f6c559a071f" Name="Diagram1">
+        <EntityTypeShape EntityType="OlxModel.sysdiagram" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OlxModel.Table_Admin" Width="1.5" PointX="1.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OlxModel.Table_Category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OlxModel.Table_Invoice" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OlxModel.Table_Order" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OlxModel.Table_Product" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OlxModel.Table_User" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="OlxModel.FK__Table_Cat__admin__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="OlxModel.FK__Table_Pro__categ__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="OlxModel.FK__Table_Inv__invoi__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="OlxModel.FK__Table_Ord__order__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="OlxModel.FK__Table_Ord__order__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="OlxModel.FK__Table_Ord__order__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="OlxModel.FK__Table_Pro__userr__09A971A2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

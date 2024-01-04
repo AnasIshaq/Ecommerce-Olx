@@ -1,0 +1,24 @@
+﻿@model Ecommerce_Olx.Models.Table_Product
+@{
+    ViewBag.Title = "Add_Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hurry Up @Session["user_name"]  Add Product Now</h2>
+<div>
+    <h3>@TempData["message"]</h3>
+</div>
+@using (Html.BeginForm("Add_Product", "USER", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.DropDownListFor(x => x.category_ID_foreign_key, ViewBag.Category as SelectList, "----------Select a Category----------", new { enctype = "multipart/form-data" })
+    <br />
+    @Html.TextBoxFor(x => x.product_NAME, new { @class = "form-control", @Placeholder = "Enter Product Name" })
+    <br />
+    @Html.TextBoxFor(x => x.product_PRICE, new { @class = "form-control", @Placeholder = "Enter Product Price" })
+    <br />
+    @Html.TextAreaFor(x => x.product_DESCRIPTION, new { @class = "form-control", @Placeholder = "Enter Product Description" })
+    <br />
+    <input type="file" id="file" name="file" class="btn-outline-success" />
+    <br />
+    <input  type="submit" value="ADD" class="btn-outline-warning"/>
+}

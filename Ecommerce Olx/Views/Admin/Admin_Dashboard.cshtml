@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Admin_Dashboard";
+    Layout = "~/Views/Shared/LAYOUTADMIN.cshtml";
+}
+
+
+
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="@Url.Action("Add_Category")">Add Category</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("View_Category")">View Category</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("View_User")">View User</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Product")">View Product</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+</ul>
+
+<h2 style="margin-top:20px;">Hi! @Session["admin_name"] Welcome To Admin Dashboard</h2>
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.............................................................................................................

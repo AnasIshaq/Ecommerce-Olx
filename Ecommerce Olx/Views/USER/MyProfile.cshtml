@@ -1,0 +1,88 @@
+﻿
+@model IEnumerable<Ecommerce_Olx.Models.Table_User>
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h2>
+    <i class='fa fa-user-circle text-muted' style="font-size:2em; opacity:.4; display:flex; justify-content:center;" ></i>
+</h2>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <section style="background-color: #eee; margin-bottom:8.43em;" class="col-lg col-md col-sm col-xs">
+            <div class="container py-5">
+               
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
+                                <img src="@Url.Content(item.userr_IMAGE)" alt="avatar"
+                                     class="rounded-circle img-fluid img-thumbnail" style="width: 150px;">
+                                <h5 style= "font-size:1em; margin-left:1.2em;" class="my-3 text-muted">@item.userr_NAME  <a href="#" style="text-decoration:none; margin-left:0.4em;"><i class="fa fa-pencil"></i></a> <a href="#" style="text-decoration:none;"><i class="fa fa-trash-o"style="color:red;"></i></a></h5>
+           
+                                <p class="text-muted ">
+                                    Active User <i class="fa fa-circle" style="color:limegreen; font-size:14px;"></i>
+                                </p>
+                                <div class="d-flex justify-content-center mb-2">
+                                    <a href="#" class="btn btn-primary" style="text-decoration:none;">Facebook</a>
+                                    <a href="#" class="btn btn-danger" style="text-decoration:none; margin-left:3px;">Email</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-8" >
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Full Name</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">@item.userr_NAME</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Password</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">@item.userr_PASSWORD</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Email</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">@item.userr_EMAIL</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Phone</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">@item.userr_CONTACT</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+
+
+</section>
+    }
+}

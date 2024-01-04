@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Ecommerce_Olx.Models.DisplayCategoryRecordsAdmin>
+@{
+    ViewBag.Title = "Display_Category_Records";
+    Layout = "~/Views/Shared/LAYOUTADMIN.cshtml";
+}
+
+<h2>Display_Category_Records</h2>
+
+<table class="table table-bordered table-responsive">
+    @if (Model != null)
+    {
+
+
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Category Status</th>
+            <th>Category Image</th>
+            <th>Admin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    foreach (var item in Model)
+    {
+
+
+        <tbody>
+            <tr>
+                <td>@item.category_ID</td>
+                <td>@item.category_NAME</td>
+                <td>@item.category_STATUS</td>
+                <td> <img src="@Url.Content(item.category_IMAGE)" height="50;"  /></td>
+                <td>@item.admin_NAME</td>
+                <td>
+                    <a href="@Url.Action("Cat_Edit" , new {id = item.category_ID})" class="btn btn-outline-info" >Edit</a>
+                    <a href="@Url.Action("Delete" , new {id = item.category_ID})" class="btn btn-outline-secondary " >Delete</a>
+                </td>
+            </tr>
+        </tbody>
+        }
+    }
+</table>

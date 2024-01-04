@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CheckOut</h2>
+
+@if (TempData["Cart"] != null)
+{<table class="table table-responsive table-bordered">
+
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Quantity</th>
+                <th>SubTotal</th>
+
+            </tr>
+        </thead>
+        @foreach (var item in TempData["Cart"] as List<Ecommerce_Olx.Models.Cart>)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.product_ID</td>
+                    <td>@item.product_NAME</td>
+                    <td>@item.product_PRICE</td>
+                    <td>@item.order_quantity</td>
+                    <td>@item.order_Sub_Total</td>
+                </tr>
+            </tbody>
+        }
+        <tfoot>
+            <tr>
+                <td colspan="5">Total Bill : @TempData["Total"]</td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+    using (Html.BeginForm())
+    {
+
+        <input class="btn btn-danger" type="Submit" value="Buy Now" />
+
+    }
+
+
+}
